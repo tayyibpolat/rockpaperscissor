@@ -28,15 +28,27 @@ function game(computerSelection, playerSelection) {
         result = "It's a tie";
     }
 
-    alert(result);
     return result;
 }
 
-let result;
-do {
-    const computerChoice = getComputerChoice();
-    const playerChoice = prompt("rock, paper, or scissor?").toLowerCase();
-    result = game(computerChoice, playerChoice);
-} while (result === "It's a tie");
+function rounds() {
+    let playerWins = 0;
 
+    for (let i = 0; i < 10; i++) {
+        const computerChoice = getComputerChoice();
+        const playerChoice = prompt("rock, paper, or scissor?").toLowerCase();
+        const result = game(computerChoice, playerChoice);
+        
+        // Check if the player won and increment the counter
+        if (result === "You won") {
+            playerWins++;
+        }
+    }
 
+    // Check if the player won at least three rounds
+    if (playerWins >= 3) {
+        alert("You won the game!");
+    }
+}
+
+rounds();
