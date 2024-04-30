@@ -34,7 +34,7 @@ function game(computerSelection, playerSelection) {
 function rounds() {
     let playerWins = 0;
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         const computerChoice = getComputerChoice();
         const playerChoice = prompt("rock, paper, or scissor?").toLowerCase();
         const result = game(computerChoice, playerChoice);
@@ -50,5 +50,5 @@ function rounds() {
         alert("You won the game!");
     }
 }
-
+button.addEventListener("click", rounds)
 rounds();
